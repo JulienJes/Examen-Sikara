@@ -1,27 +1,26 @@
 <!DOCTYPE html>
-    <html>
+<html>
     <head>
         <meta charset="UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href='../assets/style/style.css'>
         <title>Video Games</title>
+        <script type="module" src="../assets/script/listGame.js"></script>
     </head>
     <body>
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
                     <a href="/" class="navbar-brand"><h1>Jeux Vidéos</h1></a>
+                    <a href="/public/newGame.html" class="btn btn-outline-success">Ajouter un jeu</a>
                     <div id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a href="./best.html" class="nav-link">Les mieux notés</a>
+                                <a href="./games.html" class="nav-link">Tous les jeux</a>
                             </li>
                             <li class="nav-item">
                                 <a href="./categories.html" class="nav-link">Catégories</a>
                             </li>     
-                            <li class="nav-item">
-                                <a href="./last.html" class="nav-link">Dernières sorties</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -29,8 +28,11 @@
         </header>
         <main>
             <div class="container">
-                <h2>Les mieux notés</h2>
+                <h2>Tous les jeux</h2>
             </div>
+            <tbody id="listGames">
+
+            </tbody>
         </main>
         <footer class="fixed-bottom d-flex justify-content-center">
             <p>Fait par Jowy avec ❤️</p>

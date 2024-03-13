@@ -1,7 +1,7 @@
-const Game = require('../models/game.model');
+const Category = require('../models/category.model');
 
 function getAll(req, res) {
-    Game.find()
+    Category.find()
     .then((object) => {
         return res.send(object)
     })
@@ -12,7 +12,7 @@ function getAll(req, res) {
 }
 
 function getOne(req, res) {
-    Game.findById(req.params.id)
+    Category.findById(req.params.id)
     .then((object) => {
         return res.send(object);
     })
@@ -24,13 +24,13 @@ function getOne(req, res) {
 
 function createOne(req, res) {
     const body = req.body;
-    const {name, platform, categories, year, developer, publisher} = body;
-    if (!name || !platform || !categories || !year || !developer || !publisher) {
+    const {name} = body;
+    if (!name) {
         return res.sendStatus(400);
     }
 
-    const game = new Game(body);
-    game.save()
+    const category = new Category(body);
+    category.save()
     .then((object) => {
         return res.send(object);
     })
@@ -41,7 +41,7 @@ function createOne(req, res) {
 }
 
 function updateOne(req, res) {
-    Game.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true})
+    Category.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true})
     .then((object) => {
         return res.send(object);
     })
@@ -52,7 +52,7 @@ function updateOne(req, res) {
 }
 
 function deleteOne(req, res) {
-    Game.deleteOne({_id: req.params.id})
+    Category.deleteOne({_id: req.params.id})
     .then(() => {
         res.sendStatus(200);
     })
