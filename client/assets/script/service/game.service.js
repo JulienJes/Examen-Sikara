@@ -29,6 +29,12 @@ export class GameService {
 
                 let myTitle = document.createElement('td');
                 myTitle.innerText = element.name;
+                let myPlatforms = document.createElement('td');
+                myPlatforms.innerText = element.platform;
+                let myYear = document.createElement('td');
+                myYear.innerText = element.year;
+                let myCategories = document.createElement('td');
+                myCategories.innerText = element.categories;
 
                 let myModif = document.createElement('td');
                 let myIcone = document.createElement('i');
@@ -53,6 +59,9 @@ export class GameService {
 
                 target.appendChild(myGame);
                 myGame.appendChild(myTitle);
+                myGame.appendChild(myPlatforms);
+                myGame.appendChild(myYear);
+                myGame.appendChild(myCategories);
                 myGame.appendChild(myModif);
                 myGame.appendChild(myDelete);
                 });
@@ -84,7 +93,7 @@ export class GameService {
                 }
             })
             .then((resource) => {
-                let tmp = new Game(resource.nom, resource.genre, resource.pays, resource.date, resource.synopsis, resource._id);
+                let tmp = new Game(resource.name, resource.platform, resource.categories, resource.theme, resource.year, resource.mode, resource.developer, resource.publisher, resource._id);
                 return tmp;
             })
             .catch((error) => {

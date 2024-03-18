@@ -10,38 +10,38 @@ export class CategoryService {
      * @return {Array<Category>}
      */
     getAll(target) {
-        let myHeaders = new Headers();
-        let url = '/api/category';
-        let options = {
+        const myHeaders = new Headers();
+        const url = '/api/category';
+        const options = {
         method: 'GET',
         headers: myHeaders
         };
 
         return fetch(url, options)
-            .then((res) => {
-                if(res.ok) {
-                    return res.json();
+            .then((response) => {
+                if(response.ok) {
+                    return response.json();
                 }
             })
             .then((response) => {
                 response.forEach(element => {
-                let myCategory = document.createElement('tr');
+                const myCategory = document.createElement('tr');
 
-                let myTitle = document.createElement('td');
+                const myTitle = document.createElement('td');
                 myTitle.innerText = element.name;
 
-                let myModif = document.createElement('td');
-                let myIcone = document.createElement('i');
+                const myModif = document.createElement('td');
+                const myIcone = document.createElement('i');
                 myIcone.classList.add('fas','fa-light', 'fa-circle-info');
-                let myLinkToDetails = document.createElement('a');
+                const myLinkToDetails = document.createElement('a');
                 myLinkToDetails.href = `/public/details/detailsCategory.html#${element._id}`;
                 myLinkToDetails.appendChild(myIcone);
                 myModif.appendChild(myLinkToDetails);
                 myModif.style.textAlign = 'center';
 
-                let myDelete = document.createElement('td');
-                let btnDelete = document.createElement('button');
-                let myIcone2 = document.createElement('i');
+                const myDelete = document.createElement('td');
+                const btnDelete = document.createElement('button');
+                const myIcone2 = document.createElement('i');
                 myIcone2.classList.add('fas', 'fa-light', 'fa-trash')
                 btnDelete.classList.add('btn', 'btn-outline-danger');
                 myDelete.style.textAlign = 'center';
@@ -70,21 +70,21 @@ export class CategoryService {
      * @return {Category}
     */
     get(id) {
-        let myHeaders = new Headers();
-        let url = `/api/category/${id}`;
-        let options = {
+        const myHeaders = new Headers();
+        const url = `/api/category/${id}`;
+        const options = {
             method: 'GET',
             headers: myHeaders
         };
       
         return fetch(url, options)
-            .then((res) => {
-                if(res.ok) {
-                return res.json();
+            .then((response) => {
+                if(response.ok) {
+                return response.json();
                 }
             })
             .then((resource) => {
-                let tmp = new Category(resource.nom, resource.genre, resource.pays, resource.date, resource.synopsis, resource._id);
+                const tmp = new Category(resource.name, resource._id);
                 return tmp;
             })
             .catch((error) => {
@@ -98,8 +98,8 @@ export class CategoryService {
      */
     modif(Category) {
         console.log(Category)
-        let url = `/api/category/${Category._id}`;
-        let options = {
+        const url = `/api/category/${Category._id}`;
+        const options = {
         method: 'PUT',
         headers: {
             'Accept': 'application/json',
@@ -111,8 +111,8 @@ export class CategoryService {
         };
 
         return fetch(url, options)
-            .then((res) => {
-                if(res.ok) {
+            .then((response) => {
+                if(response.ok) {
                 console.log('reussi')
                 }
             })
@@ -126,8 +126,8 @@ export class CategoryService {
      * @param {Category} Category 
      */
     add(Category) {
-        let url = '/api/category';
-        let options = {
+        const url = '/api/category';
+        const options = {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -139,8 +139,8 @@ export class CategoryService {
         };
 
         return fetch(url, options)
-        .then((res) => {
-            if(res.ok) {
+        .then((response) => {
+            if(response.ok) {
             console.log('reussi');
             }
         })
@@ -154,16 +154,16 @@ export class CategoryService {
      * @param {String} id - identifiant du categorie 
      */
     remove(id) {
-        let url = `/api/category/${id}`;
-        let myHeaders = new Headers();
-        let options = {
+        const url = `/api/category/${id}`;
+        const myHeaders = new Headers();
+        const options = {
         method : 'DELETE', 
         headers: myHeaders
         };
 
         return fetch(url, options)
-        .then((res) => {
-            if(res.ok) {
+        .then((response) => {
+            if(response.ok) {
             console.log('Réussi');
             location.reload();
             }

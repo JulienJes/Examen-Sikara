@@ -2,8 +2,10 @@ import { GameService } from "./service/game.service.js";
 import { CategoryService } from "./service/category.service.js"; 
 import { Game } from "./class/game.class.js";
 
+const categoryService = new CategoryService();
+const gameService = new GameService();
+
 document.addEventListener("DOMContentLoaded", function() {
-  const categoryService = new CategoryService();
   const categoriesSelect = document.querySelector("#categories");
 
   categoryService.getAll(categoriesSelect)
@@ -21,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 const btnNew = document.querySelector('#newgame');
-const gameService = new GameService();
 
 btnNew.addEventListener('click', () => {
   const name = document.querySelector('#name');

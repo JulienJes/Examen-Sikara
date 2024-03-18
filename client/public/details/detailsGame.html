@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Détails</title>
+        <link rel="stylesheet" href="../../assets/style/style.css">
+        <script type="module" src="../../assets/script/detailsGame.js"></script>
+    </head>
+    <body>
+        <main>
+            <header>
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a href="/" class="navbar-brand"><h1>Jeux Vidéos</h1></a>
+                        <h2 id="title"></h2>
+                        <div id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a href="./games.html" class="nav-link">Tous les jeux</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./categories.html" class="nav-link">Catégories</a>
+                                </li>     
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            <article class="container">
+                <div class="row">
+                    <div class="col-6">
+                    <div class="form-group">
+                        <label for="name">Titre</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    </div>
+                    <div class="col-6">
+                    <div class="form-group">
+                        <label for="platform">Plateforme</label>
+                        <input type="text" class="form-control" id="platform">
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                    <div class="form-group">
+                        <label for="categories">Catégories</label>
+                        <input type="text" class="form-control" id="categories">
+                    </div>
+                    </div>
+                    <div class="col-6">
+                    <div class="form-group">
+                        <label for="theme">Thème</label>
+                        <input type="text" class="form-control" id="theme">
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                    <div class="form-group">
+                        <label for="year">Année de sortie</label>
+                        <input type="text" class="form-control" id="year">
+                    </div>
+                    </div>
+                    <div class="col-6">
+                    <div class="form-group">
+                        <label for="mode">Mode</label>
+                        <input type="text" class="form-control" id="mode">
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                    <div class="form-group">
+                        <label for="developer">Développeur</label>
+                        <input type="text" class="form-control" id="developer">
+                    </div>
+                    </div>
+                    <div class="col-6">
+                    <div class="form-group">
+                        <label for="publisher">Editeur</label>
+                        <input type="text" class="form-control" id="publisher">
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        </br>
+                        <button class="btn btn-outline-success" id="modif">Modifier</button>
+                    </div>
+                </div>
+            </article>
+        </main>
+        <footer class="fixed-bottom d-flex justify-content-center">
+            <p>Fait par Jowy avec ❤️</p>
+        </footer>
+    </body>
+</html>
