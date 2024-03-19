@@ -3,6 +3,10 @@
 Cloner le repository sur votre environnement local.
 A la racine du projet, dans le terminal, utiliser la commande `npm i`.
 
+# Configurez la BDD
+Pour choisir entre une BDD distante ou local, commentez/décommentez les lignes 4 & 5 de index.js à la racine du projet à votre convenance.
+Note: la BDD distante a déjà quelques données.
+
 # Lancer le projet
 A la racine du projet, dans le terminal, utiliser la commande `npm start`.
 

@@ -3,20 +3,21 @@ import { CategoryService } from './service/category.service.js';
 import { Game } from './class/game.class.js';
 
 const gameService = new GameService();
-const categoryService = new CategoryService();
+const categoryService = new CategoryService();const name = document.querySelector('#name');
 
-let name = document.querySelector('#name');
-let platform = document.querySelector('#platform');
-let categories = document.querySelector('#categories');
-let theme = document.querySelector('#theme');
-let year = document.querySelector('#year');
-let mode = document.querySelector('#mode');
-let developer = document.querySelector('#developer');
-let publisher = document.querySelector('#publisher');
-let title = document.querySelector('#title');
+const platform = document.querySelector('#platform');
+const theme = document.querySelector('#theme');
+const year = document.querySelector('#year');
+const mode = document.querySelector('#mode');
+const developer = document.querySelector('#developer');
+const publisher = document.querySelector('#publisher');
+const title = document.querySelector('#title');
+const categoriesSelect = document.querySelector("#categories");
+categoriesSelect.setAttribute('multiple', '');
 
 // retrait du hash de l'id de l'URL pour pouvoir requêter l'api via le service GameService
 let myId = window.location.hash.substring(1);
+
 let categoryIds
 
 let myGame = gameService.get(myId);
@@ -35,7 +36,10 @@ myGame.then((element) => {
     // modification du jeu
     let modif = document.querySelector('#modif');
     modif.addEventListener('click', () => {
-        let tmp = new Game(name.value, platform.value, categories.value, theme.value, year.value, mode.value, developer.value, publisher.value, element._id,);
+        let selectedCategories = Array.from(categoriesSelect.options)
+            .filter(option => option.selected)
+            .map(option => option.value);
+        let tmp = new Game(name.value, platform.value, selectedCategories, theme.value, year.value, mode.value, developer.value, publisher.value, element._id,);
         gameService.modif(tmp);
     });
 });
@@ -45,8 +49,6 @@ myGame.then((element) => {
 * les catégories du jeu sont pré-sélectionnées
 */
 document.addEventListener("DOMContentLoaded", function() {
-    const categoriesSelect = document.querySelector("#categories");
-  
     categoryService.getAll(categoriesSelect)
         .then(categories => {
             categories.forEach(category => {

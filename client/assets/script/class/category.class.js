@@ -26,11 +26,11 @@ export class Category {
   }
 
   get platform() {
-    return this._platform;
+    return this.description;
   }
 
   set platform(tmp) {
-    this._platform = tmp;
+    this.description = tmp;
   }
 
 }

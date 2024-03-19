@@ -5,13 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href='../assets/style/style.css'>
         <title>Categories</title>
+        <script type="module" src="../assets/script/listCategories.js"></script>
     </head>
     <body>
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
                     <a href="/" class="navbar-brand"><h1>Jeux Vidéos</h1></a>
-                    <a href="/public/newGame.html" class="btn btn-outline-success">Ajouter un jeu</a>
+                    <a href="/public/new/newCategory.html" class="btn btn-outline-success">Ajouter une catégorie</a>
                     <div id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
@@ -28,6 +29,19 @@
             <div class="container">
                 <h2>Catégories</h2>
             </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Détails</th>
+                    <th>Suppression</th>
+                    </tr>
+                </thead>
+                <tbody id="listCategories">
+
+                </tbody>
+            </table>
         </main>
         <footer class="fixed-bottom d-flex justify-content-center">
             <p>Fait par Jowy avec ❤️</p>

@@ -10,7 +10,6 @@ export class CategoryService {
      * @return {Array<Category>}
      */
     getAll(target) {
-        console.log("getAll")
         const myHeaders = new Headers();
         const url = '/api/category';
         const options = {
@@ -25,11 +24,14 @@ export class CategoryService {
                 }
             })
             .then((response) => {
+                console.log("🚀 ~ CategoryService ~ .then ~ response:", response)
                 response.forEach(element => {
                 const myCategory = document.createElement('tr');
 
                 const myTitle = document.createElement('td');
                 myTitle.innerText = element.name;
+                const myDescription = document.createElement('td');
+                myDescription.innerText = element.description;
 
                 const myModif = document.createElement('td');
                 const myIcone = document.createElement('i');
@@ -54,6 +56,7 @@ export class CategoryService {
 
                 target.appendChild(myCategory);
                 myCategory.appendChild(myTitle);
+                myCategory.appendChild(myDescription);
                 myCategory.appendChild(myModif);
                 myCategory.appendChild(myDelete);
                 });
@@ -85,7 +88,8 @@ export class CategoryService {
                 }
             })
             .then((resource) => {
-                const tmp = new Category(resource.name, resource._id);
+                const tmp = new Category(resource.name, resource.description, resource._id);
+                console.log("🚀 ~ CategoryService ~ .then ~ tmp:", tmp)
                 return tmp;
             })
             .catch((error) => {
@@ -95,11 +99,11 @@ export class CategoryService {
 
     /**
      * Modifie le categorie passé en paramètre
-     * @param {String} Category 
+     * @param {String} category 
      */
-    modif(Category) {
-        console.log(Category)
-        const url = `/api/category/${Category._id}`;
+    modif(category) {
+        console.log(category)
+        const url = `/api/category/${category._id}`;
         const options = {
         method: 'PUT',
         headers: {
