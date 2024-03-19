@@ -1,4 +1,4 @@
-import { CategoryService } from "./service/category.service.js";
+import { CategoryService } from "../service/category.service.js";
 
 const categoryService = new CategoryService();
 const categoriesList = document.querySelector('#listCategories');

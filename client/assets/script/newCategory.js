@@ -5,7 +5,12 @@ let btnNew = document.querySelector('#newcategory');
 let categoryService = new CategoryService();
 
 btnNew.addEventListener('click', () => {
+
   let name = document.querySelector('#name');
+  if(!name.value) {
+    alert('Veuillez remplir les champs obligatoires (*)');
+    return;
+  }
   let description = document.querySelector('#description');
 
   let newCategory = new Category(name.value, description.value);

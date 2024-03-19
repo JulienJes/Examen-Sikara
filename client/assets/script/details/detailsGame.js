@@ -1,6 +1,6 @@
-import { GameService } from './service/game.service.js';
-import { CategoryService } from './service/category.service.js';
-import { Game } from './class/game.class.js';
+import { GameService } from '../service/game.service.js';
+import { CategoryService } from '../service/category.service.js';
+import { Game } from '../class/game.class.js';
 
 const gameService = new GameService();
 const categoryService = new CategoryService();const name = document.querySelector('#name');
@@ -36,6 +36,18 @@ myGame.then((element) => {
     // modification du jeu
     let modif = document.querySelector('#modif');
     modif.addEventListener('click', () => {
+
+        if(!name.value || !platform.value || !year.value || !developer.value || !publisher.value) {
+            alert('Veuillez remplir les champs obligatoires (*)');
+            return;
+        }
+
+        const yearNumber = parseInt(year.value, 10);
+        if(!yearNumber || yearNumber < 1900 || yearNumber > 2024) {
+            alert('Veuillez saisir une année entre 1900 et 2024');
+            return;
+        }
+        
         let selectedCategories = Array.from(categoriesSelect.options)
             .filter(option => option.selected)
             .map(option => option.value);

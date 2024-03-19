@@ -1,5 +1,5 @@
-import { CategoryService } from './service/category.service.js';
-import { Category } from './class/category.class.js';
+import { CategoryService } from '../service/category.service.js';
+import { Category } from '../class/category.class.js';
 
 const categoryService = new CategoryService();
 
@@ -20,6 +20,10 @@ myCategory.then((element) => {
     // modification du jeu
     let modif = document.querySelector('#modif');
     modif.addEventListener('click', () => {
+        if(!name.value) {
+            alert('Veuillez remplir les champs obligatoires (*)');
+            return;
+        }
         let tmp = new Category(name.value, description.value, element._id);
         console.log("🚀 ~ modif.addEventListener ~ tmp:", tmp)
         categoryService.modif(tmp);

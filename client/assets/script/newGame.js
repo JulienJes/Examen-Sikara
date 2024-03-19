@@ -33,6 +33,17 @@ btnNew.addEventListener('click', () => {
   const mode = document.querySelector('#mode');
   const developer = document.querySelector('#developer');
   const publisher = document.querySelector('#publisher');
+  
+  if(!name.value || !platform.value || !year.value || !developer.value || !publisher.value) {
+    alert('Veuillez remplir les champs obligatoires (*)');
+    return;
+  }
+  
+  const yearNumber = parseInt(year.value, 10);
+  if(!yearNumber || yearNumber < 1900 || yearNumber > 2024) {
+    alert('Veuillez saisir une année entre 1900 et 2024');
+    return;
+  }
 
   let selectedCategories = Array.from(categoriesSelect.options)
     .filter(option => option.selected)

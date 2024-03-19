@@ -24,7 +24,6 @@ export class CategoryService {
                 }
             })
             .then((response) => {
-                console.log("🚀 ~ CategoryService ~ .then ~ response:", response)
                 response.forEach(element => {
                 const myCategory = document.createElement('tr');
 
@@ -89,7 +88,6 @@ export class CategoryService {
             })
             .then((resource) => {
                 const tmp = new Category(resource.name, resource.description, resource._id);
-                console.log("🚀 ~ CategoryService ~ .then ~ tmp:", tmp)
                 return tmp;
             })
             .catch((error) => {
@@ -102,7 +100,6 @@ export class CategoryService {
      * @param {String} category 
      */
     modif(category) {
-        console.log(category)
         const url = `/api/category/${category._id}`;
         const options = {
         method: 'PUT',

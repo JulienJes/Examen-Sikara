@@ -62,7 +62,7 @@ export class GameService {
                 myGame.appendChild(myModif);
                 myGame.appendChild(myDelete);
                 });
-                console.log(response);
+
                 return response;
             })
             .catch((error) => {
