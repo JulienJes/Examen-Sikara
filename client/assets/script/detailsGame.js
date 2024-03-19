@@ -1,6 +1,7 @@
 import { GameService } from './service/game.service.js';
 import { CategoryService } from './service/category.service.js';
 import { Game } from './class/game.class.js';
+
 const gameService = new GameService();
 const categoryService = new CategoryService();
 
@@ -16,6 +17,7 @@ let title = document.querySelector('#title');
 
 // retrait du hash de l'id de l'URL pour pouvoir requêter l'api via le service GameService
 let myId = window.location.hash.substring(1);
+let categoryIds
 
 let myGame = gameService.get(myId);
 myGame.then((element) => {
@@ -28,24 +30,36 @@ myGame.then((element) => {
     developer.value = element.developer;
     publisher.value = element.publisher;
 
-    let categoryIds = element.categories;
+    categoryIds = element.categories;
 
-    let promises = categoryIds.map((id) => {
-        return categoryService.get(id).then(category => {
-            return category.name;
-        });
-    });
-
-    Promise.all(promises).then((names) => {
-        categories.value = names.join(', ');
-    });
-
-
-    /* ------------------------------------------ */
     // modification du jeu
     let modif = document.querySelector('#modif');
     modif.addEventListener('click', () => {
         let tmp = new Game(name.value, platform.value, categories.value, theme.value, year.value, mode.value, developer.value, publisher.value, element._id,);
         gameService.modif(tmp);
     });
+});
+
+/** gestion des categories
+* on affiche toutes les catégories pour pouvoir les modifier
+* les catégories du jeu sont pré-sélectionnées
+*/
+document.addEventListener("DOMContentLoaded", function() {
+    const categoriesSelect = document.querySelector("#categories");
+  
+    categoryService.getAll(categoriesSelect)
+        .then(categories => {
+            categories.forEach(category => {
+                const option = document.createElement("option");
+                option.value = category._id;
+                option.text = category.name;
+                categoriesSelect.appendChild(option);
+                if (categoryIds.includes(category._id)) {
+                    option.selected = true;
+                }
+            });
+        })
+        .catch(error => {
+            console.error(error);
+        });
 });

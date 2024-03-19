@@ -9,7 +9,6 @@ btnNew.addEventListener('click', () => {
   let description = document.querySelector('#description');
 
   let newCategory = new Category(name.value, description.value);
-  console.log("🚀 ~ btnNew.addEventListener ~ newCategory:", newCategory)
   
   let promise = categoryService.add(newCategory);
   promise.then(() => {

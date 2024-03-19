@@ -10,6 +10,7 @@ export class CategoryService {
      * @return {Array<Category>}
      */
     getAll(target) {
+        console.log("getAll")
         const myHeaders = new Headers();
         const url = '/api/category';
         const options = {

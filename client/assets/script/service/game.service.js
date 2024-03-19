@@ -33,8 +33,6 @@ export class GameService {
                 myPlatforms.innerText = element.platform;
                 let myYear = document.createElement('td');
                 myYear.innerText = element.year;
-                let myCategories = document.createElement('td');
-                myCategories.innerText = element.categories;
 
                 let myModif = document.createElement('td');
                 let myIcone = document.createElement('i');
@@ -61,7 +59,6 @@ export class GameService {
                 myGame.appendChild(myTitle);
                 myGame.appendChild(myPlatforms);
                 myGame.appendChild(myYear);
-                myGame.appendChild(myCategories);
                 myGame.appendChild(myModif);
                 myGame.appendChild(myDelete);
                 });
