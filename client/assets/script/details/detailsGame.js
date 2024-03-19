@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 option.value = category._id;
                 option.text = category.name;
                 categoriesSelect.appendChild(option);
-                if (categoryIds.includes(category._id)) {
+                if (categoryIds && categoryIds.includes(category._id)) {
                     option.selected = true;
                 }
             });

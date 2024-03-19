@@ -8,8 +8,8 @@ const gameService = new GameService();
 const categoriesSelect = document.querySelector("#categories");
 categoriesSelect.setAttribute('multiple', '');
 
-document.addEventListener("DOMContentLoaded", function() {
-  categoryService.getAll(categoriesSelect)
+document.addEventListener("DOMContentLoaded", async function() {
+  await categoryService.getAll(categoriesSelect)
       .then(categories => {
           categories.forEach(category => {
               const option = document.createElement("option");
