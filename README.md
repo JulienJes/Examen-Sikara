@@ -11,7 +11,8 @@ A la racine du projet, dans le terminal, utiliser la commande `npm start`.
 
 # Navigation
 Le bouton retour réalisé en cours a été remplacé par une navigation en haut à droite.
-Utilisez ces liens pour assurer la mise à jour des pages (en cas de modification) au même titre de le bouton retour.
+Utilisez ces liens pour assurer la mise à jour des pages (en cas de modification) au même titre que le bouton retour.
+Le gros titre "Jeux Vidéo" permet également de revenir sur la landing-page.
 
 # Particularité du projet
 Celui-ci propose deux models au lieu d'un seul avec une relation basique entre les deux.
